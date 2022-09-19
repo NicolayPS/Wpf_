@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:Wpf_DZ_3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="MenuItem_Click"/>
+        <CommandBinding Command="Save" Executed="MenuItem_Click_1"/>
+        <CommandBinding Command="Close" Executed="MenuItem_Click_2"/>
+    </Window.CommandBindings>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,10 +21,10 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top" VerticalContentAlignment="Top">
                 <MenuItem Header="_Файл">
-                    <MenuItem Header="_Открыть" Click="MenuItem_Click"/>
-                    <MenuItem Header="_Сохранить" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="_Открыть" Command="ApplicationCommands.Open"/>
+                    <MenuItem Header="_Сохранить" Command="ApplicationCommands.Save"/>
                     <Separator/>
-                    <MenuItem Header="_Закрыть" Click="MenuItem_Click_2"/>
+                    <MenuItem Header="_Закрыть" Command="ApplicationCommands.Close"/>
 
                 </MenuItem>
 
@@ -63,7 +68,7 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="1" Margin="10,60,10,10" Padding="50" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto">
+        <TextBox x:Name="textBox" Grid.Row="1" Margin="10,60,10,10" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto">
 
         </TextBox>
     </Grid>
